@@ -17,6 +17,7 @@ cp .env.example .env
 ```bash
 php artisan key:generate
 ```
+```bash
 configurar een el archivo .env las variables de entorno para conexion a la base de datos por ej:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -24,6 +25,7 @@ DB_PORT=3306
 DB_DATABASE=nombre_base_datos
 DB_USERNAME=usuario
 DB_PASSWORD=contraseña
+```
 ```bash
 php artisan migrate
 ```
