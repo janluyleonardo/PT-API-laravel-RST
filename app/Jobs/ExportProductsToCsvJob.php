@@ -19,8 +19,6 @@ class ExportProductsToCsvJob implements ShouldQueue
     {
         $csv = Writer::createFromString('');
         $csv->insertOne(['id', 'Nombre', 'Descripción', 'Precio', 'Stock', 'Categoría']);
-
-        // Procesar los productos en chunks de 1000
         Product::chunk(1000, function ($products) use ($csv) {
             foreach ($products as $product) {
                 $csv->insertOne([
@@ -33,11 +31,7 @@ class ExportProductsToCsvJob implements ShouldQueue
                 ]);
             }
         });
-
-        // Guardar el archivo CSV en el almacenamiento
         $filename = 'products/products_' . now()->format('Y-m-d_H-i-s') . '.csv';
         Storage::disk('public')->put($filename, $csv->getContent());
-
-        // Opcional: Enviar notificación o guardar el path del archivo en la base de datos
     }
 }

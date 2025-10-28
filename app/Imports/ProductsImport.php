@@ -53,7 +53,6 @@ class ProductsImport implements ToModel, WithHeadingRow, WithValidation, SkipsOn
 
     public function onFailure(Failure ...$failures)
     {
-        // Puedes manejar los errores aquí, por ejemplo, registrarlos en un log
         foreach ($failures as $failure) {
             Log::error("Error en la fila " . $failure->row() . ": " . $failure->errors()[0]);
         }

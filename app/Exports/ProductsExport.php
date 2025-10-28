@@ -16,7 +16,7 @@ class ProductsExport implements FromQuery, WithChunkReading, WithHeadings
 
     public function chunkSize(): int
     {
-        return 1000; // Número de registros por chunk
+        return 1000;
     }
 
     public function headings(): array

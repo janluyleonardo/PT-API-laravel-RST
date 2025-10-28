@@ -24,7 +24,7 @@ class UpdateProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => 'sometimes|string|max:255', // "sometimes" permite que el campo sea opcional en la actualización
+            'nombre' => 'sometimes|string|max:255',
             'descripcion' => 'sometimes|string',
             'precio' => 'sometimes|numeric|min:0',
             'stock' => 'sometimes|integer|min:0',

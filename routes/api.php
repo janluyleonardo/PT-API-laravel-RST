@@ -12,4 +12,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/products/import', [ProductController::class, 'import']);
     Route::apiResource('/products', ProductController::class);
 });
-// TODO: falta los puntos 3 y 4 exportar, importar en csv o excel
