@@ -7,8 +7,9 @@ use App\Http\Controllers\AuthController;
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResource('/products', ProductController::class);
-    Route::post('/products/import', [ProductController::class, 'import']);
+    Route::get('/products/exportcsv', [ProductController::class, 'exportcsv']);
     Route::get('/products/export', [ProductController::class, 'export']);
+    Route::post('/products/import', [ProductController::class, 'import']);
+    Route::apiResource('/products', ProductController::class);
 });
 // TODO: falta los puntos 3 y 4 exportar, importar en csv o excel
