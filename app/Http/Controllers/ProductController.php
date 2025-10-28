@@ -11,7 +11,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return "index method called";
     }
 
     /**
@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "store method called";
     }
 
     /**
@@ -27,7 +27,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return "show method called";
     }
 
     /**
@@ -35,7 +35,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return "update method called";
     }
 
     /**
@@ -43,6 +43,6 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return "destroy method called";
     }
 }

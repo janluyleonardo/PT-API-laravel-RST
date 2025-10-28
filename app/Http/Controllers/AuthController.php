@@ -10,15 +10,36 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-        if (!Auth::attempt($credentials)) {
-            return response()->json(['message' => 'Unauthorized'], 401);
+        $user = User::where('email', $credentials['email'])->first();
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'El correo electrónico no está registrado.',
+                'errors' => ['email' => ['El correo electrónico no está registrado.']]
+            ], 401);
         }
 
-        $user = User::where('email', $request->email)->first();
+        if (!Auth::attempt($credentials)) {
+            return response()->json([
+                'message' => 'Contraseña incorrecta. Por favor, verifica tus credenciales.',
+                'errors' => ['password' => ['La contraseña es incorrecta.']]
+            ], 401);
+        }
+
         $token = $user->createToken('authToken')->plainTextToken;
 
-        return response()->json(['token' => $token]);
+        return response()->json([
+            'message' => 'Inicio de sesión exitoso.',
+            'token' => $token,
+            'user' => [
+                'name' => $user->name,
+                'email' => $user->email,
+            ]
+        ]);
     }
 }
