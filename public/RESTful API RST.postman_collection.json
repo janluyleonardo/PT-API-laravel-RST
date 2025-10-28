@@ -1,0 +1,1584 @@
+{
+	"info": {
+		"_postman_id": "96fba330-3410-49da-b0a7-f6946bfa1f32",
+		"name": "RESTful API Basics #blueprint",
+		"description": "# 🚀 Get started here\n\nThis collection guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this collection**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these request types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT and PATCH requests.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a variable called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more scripts in \"Tests\" to verify if the API works as expected and execute flows.\n    \n\n## ℹ️ Resources\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)  \n[Writing scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20097900",
+		"_collection_link": "https://blue-shadow-156896.postman.co/workspace/PT-API-colection-RST~82f800d7-e2c9-4b9e-8671-eaee7edc9740/collection/20097900-96fba330-3410-49da-b0a7-f6946bfa1f32?action=share&source=collection_link&creator=20097900"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"janluy.moreno@gmail.com\",\r\n    \"password\": \"1234567890\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "login-response-successful",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"janluy.moreno@gmail.com\",\r\n    \"password\": \"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 02:19:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Inicio de sesión exitoso.\",\n    \"token\": \"1|56EOU4v8plAPPIU7RdwIuG28ZBUeXRVRBDGdqYJvff4b890c\",\n    \"user\": {\n        \"name\": \"janluy leonardo moreno coronado\",\n        \"email\": \"janluy.moreno@gmail.com\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "get-products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2|afDz1NMI4PNqYuVQmJkQsmDtvCVJKaUjaI4r4wvmfb4b43c3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products?per_page=10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "per_page",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Products-response-successful",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 02:21:15 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"current_page\": 1,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"nombre\": \"Lyda Parker\",\n            \"descripcion\": \"Sed in autem fugit velit id eum itaque. Ut consectetur atque non autem nesciunt suscipit. Est voluptatum consequatur nulla nihil sed.\",\n            \"precio\": \"252.89\",\n            \"stock\": 65,\n            \"categoria\": \"Libros\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"nombre\": \"Chelsey Huels\",\n            \"descripcion\": \"Quod dolorum et et et non id. Et facere nemo repudiandae error molestiae repudiandae aut. Facilis quam nam et dolorum hic laboriosam. Omnis ut eius vitae quo cupiditate officiis odit.\",\n            \"precio\": \"790.62\",\n            \"stock\": 68,\n            \"categoria\": \"Deportes\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"nombre\": \"Kaitlin Beatty\",\n            \"descripcion\": \"Sed eaque quae voluptas mollitia. Aut voluptate voluptatibus nihil qui illum blanditiis. Placeat doloremque aut ducimus.\",\n            \"precio\": \"363.38\",\n            \"stock\": 43,\n            \"categoria\": \"Ropa\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"nombre\": \"Casey Yost\",\n            \"descripcion\": \"Quis excepturi veniam nemo iste. Architecto aspernatur qui maiores vitae veritatis qui quidem.\",\n            \"precio\": \"897.54\",\n            \"stock\": 97,\n            \"categoria\": \"Electrónicos\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"nombre\": \"Prof. Karley Wintheiser\",\n            \"descripcion\": \"Quo minima est modi rerum repellat. Repellat cupiditate amet quia nihil et sequi voluptatem repudiandae. Aut odit aut eos libero qui quia excepturi alias.\",\n            \"precio\": \"502.93\",\n            \"stock\": 8,\n            \"categoria\": \"Hogar\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"nombre\": \"Prof. Salma Schowalter\",\n            \"descripcion\": \"Ipsa velit ut et aut voluptate. Illo dignissimos accusantium est repellendus beatae adipisci ut est. Enim non facilis rerum optio animi odit ea.\",\n            \"precio\": \"897.66\",\n            \"stock\": 75,\n            \"categoria\": \"Electrónicos\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"nombre\": \"Cecilia Bashirian\",\n            \"descripcion\": \"Non omnis exercitationem ut dolorem. Distinctio corrupti ex sed et velit.\",\n            \"precio\": \"687.48\",\n            \"stock\": 66,\n            \"categoria\": \"Electrónicos\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"nombre\": \"Nicholas Huels\",\n            \"descripcion\": \"Aliquam illo modi omnis. Dolor rerum provident suscipit quam. Aliquid voluptas minus est.\",\n            \"precio\": \"803.72\",\n            \"stock\": 83,\n            \"categoria\": \"Hogar\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"nombre\": \"Filiberto Daugherty\",\n            \"descripcion\": \"Magni aliquam libero eum voluptatibus. Qui molestiae nisi quo et. Neque minima est et ex quo magni. Libero ut et voluptatem itaque impedit.\",\n            \"precio\": \"447.76\",\n            \"stock\": 77,\n            \"categoria\": \"Hogar\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"nombre\": \"Arnulfo Reichel\",\n            \"descripcion\": \"Rem esse modi praesentium temporibus enim officiis. Quaerat et cumque placeat et qui modi et. Incidunt qui et architecto eum. Eaque odio sint fuga aspernatur sint molestiae.\",\n            \"precio\": \"348.87\",\n            \"stock\": 35,\n            \"categoria\": \"Ropa\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        }\n    ],\n    \"first_page_url\": \"http://127.0.0.1:8000/api/products?page=1\",\n    \"from\": 1,\n    \"last_page\": 10000,\n    \"last_page_url\": \"http://127.0.0.1:8000/api/products?page=10000\",\n    \"links\": [\n        {\n            \"url\": null,\n            \"label\": \"&laquo; Previous\",\n            \"page\": null,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=1\",\n            \"label\": \"1\",\n            \"page\": 1,\n            \"active\": true\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=2\",\n            \"label\": \"2\",\n            \"page\": 2,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=3\",\n            \"label\": \"3\",\n            \"page\": 3,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=4\",\n            \"label\": \"4\",\n            \"page\": 4,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=5\",\n            \"label\": \"5\",\n            \"page\": 5,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=6\",\n            \"label\": \"6\",\n            \"page\": 6,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=7\",\n            \"label\": \"7\",\n            \"page\": 7,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=8\",\n            \"label\": \"8\",\n            \"page\": 8,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=9\",\n            \"label\": \"9\",\n            \"page\": 9,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=10\",\n            \"label\": \"10\",\n            \"page\": 10,\n            \"active\": false\n        },\n        {\n            \"url\": null,\n            \"label\": \"...\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=9999\",\n            \"label\": \"9999\",\n            \"page\": 9999,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=10000\",\n            \"label\": \"10000\",\n            \"page\": 10000,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=2\",\n            \"label\": \"Next &raquo;\",\n            \"page\": 2,\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": \"http://127.0.0.1:8000/api/products?page=2\",\n    \"path\": \"http://127.0.0.1:8000/api/products\",\n    \"per_page\": 10,\n    \"prev_page_url\": null,\n    \"to\": 10,\n    \"total\": 100000\n}"
+				}
+			]
+		},
+		{
+			"name": "products-per-page",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2|afDz1NMI4PNqYuVQmJkQsmDtvCVJKaUjaI4r4wvmfb4b43c3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products?page=3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://127.0.0.1:8000/api/products?page=3",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products?page=3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 02:31:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"current_page\": 3,\n    \"data\": [\n        {\n            \"id\": 21,\n            \"nombre\": \"Dr. Ulises Keeling\",\n            \"descripcion\": \"Dolore quibusdam sapiente deleniti vel. Dolor aut dolorem odit. Dolor aut sit veniam soluta. Esse odio asperiores at aut.\",\n            \"precio\": \"968.69\",\n            \"stock\": 65,\n            \"categoria\": \"Electrónicos\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 22,\n            \"nombre\": \"Bo Cremin\",\n            \"descripcion\": \"Sed eos expedita quis ut. Rerum quis nostrum cupiditate repellat voluptas nihil non dolor. Doloremque quod quia minus modi iusto cupiditate.\",\n            \"precio\": \"774.79\",\n            \"stock\": 78,\n            \"categoria\": \"Deportes\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 23,\n            \"nombre\": \"Mr. Troy Tillman IV\",\n            \"descripcion\": \"Eaque minus voluptas laboriosam ut sint natus. Omnis quis architecto aut quia deleniti nemo ea. Rem nisi provident repudiandae.\",\n            \"precio\": \"775.18\",\n            \"stock\": 35,\n            \"categoria\": \"Electrónicos\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 24,\n            \"nombre\": \"Agustina Cassin III\",\n            \"descripcion\": \"Laboriosam voluptas error natus natus. Est quia suscipit deleniti rerum velit. Sed quis eum vero adipisci ad et rerum quaerat. Occaecati in esse quasi expedita omnis. Nihil voluptatem esse eius.\",\n            \"precio\": \"203.10\",\n            \"stock\": 97,\n            \"categoria\": \"Electrónicos\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 25,\n            \"nombre\": \"Dr. Rigoberto Tremblay DDS\",\n            \"descripcion\": \"Eos hic temporibus libero enim nobis. Qui dolor dolores minus numquam est. Itaque ex veniam dolor. Autem aut quod dolorum laudantium omnis quia quis.\",\n            \"precio\": \"511.15\",\n            \"stock\": 86,\n            \"categoria\": \"Ropa\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 26,\n            \"nombre\": \"Weldon Bernhard III\",\n            \"descripcion\": \"Inventore quis doloremque similique. Aut et maiores enim sint eius ipsam. Deserunt exercitationem qui ad aliquam id. Accusantium voluptate eos enim rem.\",\n            \"precio\": \"674.83\",\n            \"stock\": 39,\n            \"categoria\": \"Hogar\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 27,\n            \"nombre\": \"Dena Medhurst\",\n            \"descripcion\": \"Eaque minima modi est distinctio nisi quae libero quia. Non magnam quod fugiat tenetur quia. Eum vel necessitatibus et ullam ut hic deserunt. Rerum aliquid dolores voluptate provident saepe.\",\n            \"precio\": \"105.05\",\n            \"stock\": 31,\n            \"categoria\": \"Ropa\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 28,\n            \"nombre\": \"Hilbert Okuneva MD\",\n            \"descripcion\": \"Beatae et dolor sed non autem aut non aut. Optio id aut blanditiis est dolorum. Voluptatem id ipsa iusto error recusandae. Consectetur numquam beatae tenetur harum.\",\n            \"precio\": \"971.51\",\n            \"stock\": 43,\n            \"categoria\": \"Deportes\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 29,\n            \"nombre\": \"Tierra Klocko DVM\",\n            \"descripcion\": \"Placeat ad animi voluptates tenetur porro voluptatem. Aut id repellat aut. Quae optio eos voluptas enim dolores.\",\n            \"precio\": \"942.51\",\n            \"stock\": 63,\n            \"categoria\": \"Ropa\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        },\n        {\n            \"id\": 30,\n            \"nombre\": \"Clarabelle Cruickshank\",\n            \"descripcion\": \"Optio aut et ut animi enim et hic. Unde totam eos et et molestias nostrum. Nulla dolorum dolorem est animi.\",\n            \"precio\": \"135.24\",\n            \"stock\": 75,\n            \"categoria\": \"Deportes\",\n            \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n            \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n        }\n    ],\n    \"first_page_url\": \"http://127.0.0.1:8000/api/products?page=1\",\n    \"from\": 21,\n    \"last_page\": 10000,\n    \"last_page_url\": \"http://127.0.0.1:8000/api/products?page=10000\",\n    \"links\": [\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=2\",\n            \"label\": \"&laquo; Previous\",\n            \"page\": 2,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=1\",\n            \"label\": \"1\",\n            \"page\": 1,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=2\",\n            \"label\": \"2\",\n            \"page\": 2,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=3\",\n            \"label\": \"3\",\n            \"page\": 3,\n            \"active\": true\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=4\",\n            \"label\": \"4\",\n            \"page\": 4,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=5\",\n            \"label\": \"5\",\n            \"page\": 5,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=6\",\n            \"label\": \"6\",\n            \"page\": 6,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=7\",\n            \"label\": \"7\",\n            \"page\": 7,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=8\",\n            \"label\": \"8\",\n            \"page\": 8,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=9\",\n            \"label\": \"9\",\n            \"page\": 9,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=10\",\n            \"label\": \"10\",\n            \"page\": 10,\n            \"active\": false\n        },\n        {\n            \"url\": null,\n            \"label\": \"...\",\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=9999\",\n            \"label\": \"9999\",\n            \"page\": 9999,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=10000\",\n            \"label\": \"10000\",\n            \"page\": 10000,\n            \"active\": false\n        },\n        {\n            \"url\": \"http://127.0.0.1:8000/api/products?page=4\",\n            \"label\": \"Next &raquo;\",\n            \"page\": 4,\n            \"active\": false\n        }\n    ],\n    \"next_page_url\": \"http://127.0.0.1:8000/api/products?page=4\",\n    \"path\": \"http://127.0.0.1:8000/api/products\",\n    \"per_page\": 10,\n    \"prev_page_url\": \"http://127.0.0.1:8000/api/products?page=2\",\n    \"to\": 30,\n    \"total\": 100000\n}"
+				}
+			]
+		},
+		{
+			"name": "Product -store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|56EOU4v8plAPPIU7RdwIuG28ZBUeXRVRBDGdqYJvff4b890c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"The name product from postman.\",\r\n    \"descripcion\":\"The product from postman.\",\r\n    \"precio\":\"10000\",\r\n    \"stock\":\"1000\",\r\n    \"categoria\":\"The category from postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "Product -store-errorField's",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 02:59:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "{\n    \"code\": \"422\",\n    \"message\": \"Error en la validación de los datos.\",\n    \"errors\": {\n        \"name\": [\n            \"The name field is required.\"\n        ],\n        \"description\": [\n            \"The description field is required.\"\n        ],\n        \"price\": [\n            \"The price field is required.\"\n        ],\n        \"stock\": [\n            \"The stock field is required.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Product -store-error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"The name product from postman.\",\r\n    \"description\":\"The product from postman.\",\r\n    \"price\":\"10000\",\r\n    \"stock\":\"1000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 03:32:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"500\",\n    \"message\": \"En store creando producto.\",\n    \"details\": {\n        \"Servicio\": \"SQLSTATE[HY000]: General error: 1364 Field 'nombre' doesn't have a default value (Connection: mysql, SQL: insert into `products` (`stock`, `updated_at`, `created_at`) values (1000, 2025-10-28 03:32:06, 2025-10-28 03:32:06))\"\n    }\n}"
+				},
+				{
+					"name": "Product -store-successfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"The name product from postman.\",\r\n    \"descripcion\":\"The product from postman.\",\r\n    \"precio\":\"10000\",\r\n    \"stock\":\"1000\",\r\n    \"categoria\":\"The category from postman\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 03:37:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "{\n    \"message\": \"Producto creado con éxito\",\n    \"data\": {\n        \"nombre\": \"The name product from postman.\",\n        \"descripcion\": \"The product from postman.\",\n        \"precio\": \"10000\",\n        \"stock\": \"1000\",\n        \"categoria\": \"The category from postman\",\n        \"updated_at\": \"2025-10-28T03:37:16.000000Z\",\n        \"created_at\": \"2025-10-28T03:37:16.000000Z\",\n        \"id\": 100001\n    },\n    \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Product - show",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|56EOU4v8plAPPIU7RdwIuG28ZBUeXRVRBDGdqYJvff4b890c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/6000000",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"6000000"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "Product - show-successfull",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 03:45:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "{\n    \"id\": 6,\n    \"nombre\": \"Prof. Salma Schowalter\",\n    \"descripcion\": \"Ipsa velit ut et aut voluptate. Illo dignissimos accusantium est repellendus beatae adipisci ut est. Enim non facilis rerum optio animi odit ea.\",\n    \"precio\": \"897.66\",\n    \"stock\": 75,\n    \"categoria\": \"Electrónicos\",\n    \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n    \"updated_at\": \"2025-10-28T02:14:15.000000Z\"\n}"
+				},
+				{
+					"name": "Product - show-error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/6000000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"6000000"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 03:56:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "{\n    \"code\": \"500\",\n    \"message\": \"En show consultando producto.\",\n    \"details\": {\n        \"Servicio\": \"No query results for model [App\\\\Models\\\\Product] 6000000\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Product-update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|56EOU4v8plAPPIU7RdwIuG28ZBUeXRVRBDGdqYJvff4b890c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"janluy leonardo\",\r\n    \"descripcion\":\"moreno coronado\",\r\n    \"precio\":\"100000\",\r\n    \"stock\":\"1000\",\r\n    \"categoria\":\"Ropa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Product-update-successfull",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"The name product from postman update.\",\r\n    \"descripcion\":\"The product from postman update.\",\r\n    \"precio\":\"10000\",\r\n    \"stock\":\"1000\",\r\n    \"categoria\":\"The category from postman update.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/33333333",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"33333333"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 04:16:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "{\n    \"message\": \"Producto actualizado con éxito\",\n    \"data\": {\n        \"id\": 1,\n        \"nombre\": \"The name product from postman update.\",\n        \"descripcion\": \"The product from postman update.\",\n        \"precio\": \"10000\",\n        \"stock\": \"1000\",\n        \"categoria\": \"The category from postman update.\",\n        \"created_at\": \"2025-10-28T02:14:15.000000Z\",\n        \"updated_at\": \"2025-10-28T04:16:07.000000Z\"\n    },\n    \"status\": true\n}"
+				},
+				{
+					"name": "Product-update-error",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"The name product from postman update.\",\r\n    \"descripcion\":\"The product from postman update.\",\r\n    \"precio\":\"10000\",\r\n    \"stock\":\"1000\",\r\n    \"categoria\":\"The category from postman update.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/33333333",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"33333333"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 04:19:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "{\n    \"code\": \"500\",\n    \"message\": \"En update actualizando producto.\",\n    \"details\": {\n        \"Servicio\": \"No query results for model [App\\\\Models\\\\Product] 33333333\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Product-delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|56EOU4v8plAPPIU7RdwIuG28ZBUeXRVRBDGdqYJvff4b890c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"4"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Product-delete-successfull",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 04:32:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Producto eliminado con éxito\",\n    \"status\": true\n}"
+				},
+				{
+					"name": "Product-delete-error",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"3"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 04:36:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": \"500\",\n    \"message\": \"En destroy eliminando producto.\",\n    \"details\": {\n        \"Servicio\": \"No query results for model [App\\\\Models\\\\Product] 3\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Product-export-excel",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|56EOU4v8plAPPIU7RdwIuG28ZBUeXRVRBDGdqYJvff4b890c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/export",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"export"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Product-exort-excel",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/export",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"export"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 13:27:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"La exportación de productos se está procesando. Se almacenará cuando esté lista.\",\n    \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Product-export-csv",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|56EOU4v8plAPPIU7RdwIuG28ZBUeXRVRBDGdqYJvff4b890c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/exportcsv",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"exportcsv"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Product-export-csv",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/exportcsv",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"exportcsv"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 13:32:43 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"domain": "",
+							"path": ""
+						}
+					],
+					"body": "{\n    \"message\": \"La exportación de productos a CSV se está procesando. Se almacenará cuando esté lista.\",\n    \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Product-import-excel",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|56EOU4v8plAPPIU7RdwIuG28ZBUeXRVRBDGdqYJvff4b890c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/leoxi/Desktop/PT-API-laravel-RST/public/prueba-import.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/products/import",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"import"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Product-import-excel-successfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/leoxi/Desktop/PT-API-laravel-RST/public/prueba-import.xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/products/import",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"import"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.12"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Oct 2025 14:19:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Productos importados con éxito.\",\n    \"status\": true\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
